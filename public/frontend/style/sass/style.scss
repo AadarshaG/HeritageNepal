@@ -1,0 +1,258 @@
+
+// VARIABLES
+$darkPurple:#3F1B27;
+$light:#F5F6F8;
+$white:#FFFFFF;
+$black:#000000;
+$grey:#707070;
+$lightGrey:#70707080;
+
+
+// MIXIN BG
+@mixin bg-dark-purple {background-color: $darkPurple;}
+@mixin bg-white {background-color: $white;}
+@mixin bg-light {background-color: $light;}
+@mixin bg-black {background-color: $black;}
+@mixin bg-grey {background-color: $grey;}
+@mixin bg-lightGrey {background-color: $lightGrey;}
+
+// MIXIN COLOR
+@mixin txt-white {color: $white;}
+@mixin txt-black { color: $black!important;  }
+@mixin txt-darkPurple {color: $darkPurple!important;}
+
+// GLOBAL
+body{
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 1660px;
+    margin: auto;
+}
+img,video{
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+   
+}
+iframe{
+    width: 100%;
+}
+.object-cover{
+    object-fit: cover;
+}
+
+.hover-zoom{
+    img{
+        transition: all 0.3s ease-in-out;
+        
+    }
+
+    &:hover img{
+        transform: scale(1.1);
+    }
+}
+
+nav{
+    a{
+        color: $white!important;
+        
+        position: relative;
+        text-transform: capitalize;
+        font-size: 18px;
+    
+        &:hover:after{
+            content: '';
+            position: absolute;
+            border-bottom: 1px solid;
+            display: block;
+            width: 50%;
+            z-index: 1;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            transform: translateX(-50%);
+        }
+        
+        
+
+     
+    }
+    a.active{
+        &::after{
+            content: '';
+            position: absolute;
+            border-bottom: 1px solid;
+            display: block;
+            width: 50%;
+            z-index: 1;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+  
+    
+}
+
+.nav-item{
+    &:hover ul{
+        display: block
+    }
+}
+
+.dropdown-item:hover{
+    @include txt-darkPurple();
+}
+
+.logo-main{
+    width: 100px;
+    height: auto;
+}
+
+.size-25{
+    width: 25px;
+    height: 25px;
+}
+
+.size-50{
+    width: 50px;
+    height: 50px;
+}
+.size-100{
+    width: 100px;
+    height: 100px;
+}
+
+.size-200{
+    width: 200px;
+    height: 200px;
+}
+.size-300{
+    width: 300px;
+    height: 300px;
+}
+
+.transform90{
+    transform: rotate(-90deg);
+}
+
+// BACKGROUND
+.hn-bg-darkPurple{@include bg-dark-purple;}
+.hn-bg-light{@include bg-light;}
+.hn-bg-white{@include bg-white;}
+.hn-bg-black{@include bg-black()}
+.hn-bg-grey{@include bg-grey()}
+.hn-bg-lightGrey{@include bg-lightGrey()}
+
+// COLOR
+.hn-darkPurple{@include txt-darkPurple();}
+
+// BUTTONS
+.hn-btn-darkPurple{
+    @include bg-dark-purple;
+    @include txt-white;
+
+    &:hover{
+        @include bg-white;
+        @include txt-black();
+        
+    }
+}
+
+.hn-btn-darkPurple-outline{
+    border: 1px solid $darkPurple;
+    background-color: transparent;
+    color:$darkPurple;
+
+    &:hover{
+        @include bg-dark-purple();
+        @include txt-white();
+        
+    }
+}
+
+// TEXT
+.hn-txt-darkPurple{
+    @include txt-darkPurple();
+    &:hover{
+        @include txt-darkPurple();
+        border-bottom: 1px solid $darkPurple;
+    }
+}
+
+// TITLE
+.hn-title{
+    font-weight: bold;
+    position: relative;
+    &::after{
+        @include txt-darkPurple();
+        content: '';
+            position: absolute;
+            border-bottom: 3px solid;
+            display: block;
+            width: 25%;
+            z-index: 1;
+            bottom: -5px;
+            left:0;
+    }
+
+}
+
+.hn-display-hover{
+    .overlay{
+        transition: all 0.3s ease-in;
+       display: none;
+       background-image: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);;
+
+    }
+
+    &:hover .overlay{
+        display: flex;
+    }
+   
+}
+
+
+// HERO
+.hero{
+    width: 100%;
+    height: 500px;
+    figure{
+        height: 500px;
+        margin: 0;
+        img{
+            object-fit: cover;
+
+        }
+    }
+}
+
+// SERVICES
+.service-img{
+    >div{
+        display: none;
+    }
+
+    &:hover div{
+        display: block;
+    }
+
+    &:hover figure{
+        padding: 0;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
